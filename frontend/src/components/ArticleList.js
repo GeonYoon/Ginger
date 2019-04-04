@@ -9,8 +9,10 @@ class ArticleList extends Component {
                 return (
                     <Article 
                         key = {article.id}
+                        id={article.id}
                         title = {article.title}
                         summary = {article.summary}
+                        author = {article.author}
                     />
                 )
             }

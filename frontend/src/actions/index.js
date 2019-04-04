@@ -9,4 +9,3 @@ export const fetch_articles = () => async dispatch => {
     dispatch({type: FETCH_ARTICLES, payload: jsonObj.feed.entry});
 };
 
-

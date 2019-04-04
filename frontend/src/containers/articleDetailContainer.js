@@ -8,10 +8,10 @@ import ArticleDetail from '../components/ArticleDetail';
 class ArticleDetailContainer extends Component {
     
     render() {
-    //   const {} = this.props
       return (
-          <ArticleDetail>
-          </ArticleDetail>
+          <ArticleDetail 
+            {...this.props.location.state}
+          />
       );
     }
 }
