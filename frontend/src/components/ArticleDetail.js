@@ -9,5 +9,4 @@ const ArticleDetail = () => {
         </div>
     );
 };
-
 export default ArticleDetail;

@@ -10,7 +10,7 @@ const InitialState = {
 export default handleActions({
   [FETCH_ARTICLES] : (state, action) => {
       return {
-        ...state,
+        articles: action.payload
       }
   }
 }, InitialState)

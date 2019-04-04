@@ -1,10 +1,12 @@
 import axios from 'axios';
+import parser from 'fast-xml-parser'
 import {FETCH_ARTICLES,
 } from './types';
 
 export const fetch_articles = () => async dispatch => {
-    console.log("fetch articles")
-    // const res = await axios.get('/api/messages');
-    // dispatch({type: FETCH_ARTICLES, payload: res.data});
+    const res = await axios.get('http://export.arxiv.org/api/query?search_query=all:psychiatry+OR+all:therapy+OR+all:data+science+OR+all:machine+learning&sortBy=lastUpdatedDate&sortOrder=descending&max_results=20');
+    var jsonObj = parser.parse(res.data);
+    dispatch({type: FETCH_ARTICLES, payload: jsonObj.feed.entry});
 };
+
 

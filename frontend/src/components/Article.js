@@ -1,13 +1,18 @@
-import React from 'react';
+import React, { Component } from  'react';
+// import './css/Message.css';
 
-const Article = () => {
-    return (
-        <div style ={{textAlign: 'center' }}>
-            <h1>
-            Article
-            </h1>
-        </div>
-    );
-};
+class Article extends Component {
+    
+    render() {
+        const {id,title} = this.props;
+        return (
+            <div className="card darken-1" key={id}>
+                <div className="card-content">
+                    <span className="card-title">{title}</span>
+                </div>
+            </div>
+        );
+    }
+}
 
 export default Article;
