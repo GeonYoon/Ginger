@@ -17,7 +17,7 @@ after_success:
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
   # Take those images and push them to docker hub 
   - docker push ssy01013/frontend
-  - docker push ssy01013/multi-nginx 
+  - docker push ssy01013/nginx 
 deploy: 
   provider: elasticbeanstalk
   region: us-east-2
