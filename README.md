@@ -1,6 +1,6 @@
 # Ginger Test Project
 
-The link below is the production version of this application using AWS.
+Production version of the application using AWS: 
 [Check Production Version](http://ginger-env.3khafvwt37.us-east-2.elasticbeanstalk.com/)
 
 This is a Ginger Test Project created by ***Geon Yoon***.
