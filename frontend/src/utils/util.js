@@ -15,22 +15,32 @@ export async function get_json_data(endpoit){
     }
 }
 
-export function filterBy(data){
+export function filterBy(data,author_name){
   var arr = []
   var thirtydays= parseInt(expectedDate())
   var dataArray = data.feed.entry
   for (var i = 0; i < dataArray.length; i++) {
       const currentDate = parseInt(convertToDate(dataArray[i].updated))
       if(thirtydays<=currentDate){
+        if(correctAuthor(dataArray[i].author,author_name) === true){
           arr.push(dataArray[i])
+        }  
       }
-      else{
-          break;
-      }   
   }
   return arr
 }
 
+export function correctAuthor(authors,author_name){
+  if(authors instanceof Array){
+    for(var i = 0; i<authors.length; i++){
+      if(authors[i].name === author_name ) return true
+    }
+  }
+  else{
+    if(authors.name === author_name) return true
+  }
+  return false
+}
 
 // If it finds an article released before 30days ago,
 // it breaks the loop and return true

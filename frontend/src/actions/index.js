@@ -27,14 +27,19 @@ export const fetch_more_articles = (article_number) => async dispatch => {
 };
 
 // get the articles of the specific user
+// This function is actually wrong. I should've created the loop until it reaches 30days. 
+// However, it took too much time to fetch the data if I create the loop since search articles by author name is not accurate.
+// If the name of the author is K. rolling, it gives me every articles that have the authors name containing k.  
+// So I just set the max request to 80 and make it one time. 
+// I can correct this in the future! 
 export const author_detail = (author,history) => async dispatch => {
-    const res = await axios.get(`http://export.arxiv.org/api/query?search_query=au:${author}&sortBy=lastUpdatedDate&sortOrder=descending&max_results=50`);
+    const res = await axios.get(`http://export.arxiv.org/api/query?search_query=au:${author}&sortBy=lastUpdatedDate&sortOrder=descending&max_results=80`); // This is not accurate.
     var jsonObj = parser.parse(res.data);
-    var data = filterBy(jsonObj)
+    var data = filterBy(jsonObj,author) // filter out the articles published over 30 days 
     history.push({
         pathname: '/author',
         state: { name: author, payload: data }
-      })
+    })
 };
 
 // get authors and process them by the date 

@@ -29,7 +29,7 @@ class AuthorList extends Component {
                 )
                 return(
                     <div>
-                        <h5 style ={{textAlign: 'center' }}>Authors and how many articles they’ve written over the last 30 days </h5>   
+                        <h5 style ={{textAlign: 'center' }}>Authors and how many articles they’ve written over the last 30 days </h5>
                         {this.stillFetching(authors,status,number_of_authors)}
                     </div>
                 ) 

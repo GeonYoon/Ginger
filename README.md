@@ -4,7 +4,7 @@ The link below is the production version of this application using AWS.
 [Check Production Version](http://ginger-env.3khafvwt37.us-east-2.elasticbeanstalk.com/)
 
 This is a Ginger Test Project created by ***Geon Yoon***.
-I choose to build a client-side app since this application does not require complex computation. Most work can be done at the front-end side without communicating with a backend server.
+I choose to build a client-side app since this application does not require complex computation. Most work can be done at the front-end side without communicating with a backend server(This is actually wrong. I explain the reason at the bottom).
 
 ## Structure of the application
 - components: All the view codes locate here.
@@ -21,8 +21,10 @@ I choose to build a client-side app since this application does not require comp
 3. Users do not see the entire authors who have published articles over the past 30 days. Only top 50 authors, sorted by the number of articles they published, are shown(all of the authors are still stored in Redux store).
 4. Saved data in Redux store are removed when users exit or refresh the current tap.
 
-## Testing
-Unfortunately, autonomous test codes have not been made. If it were made, it would be automatically tested by Travis-CI when the application is pushed to Github.
+## Testing and Bugs
+- Unfortunately, autonomous test codes have not been made. If it were made, it would be automatically tested by Travis-CI when the application is pushed to Github.
+
+- There is one thing that I did not implement. I should've created the loop and kept fetching the data until I reached the articles that released over 30 days ago. However, it took too much time to fetch the data when I created the loop since searching for articles by author name was not accurate. For example, if the name of the author is K. rolling, the search result gave me every article that had the author's name containing K. So I just set the max request to 80 articles and made it the one-time request. If I had more time, I would have created a backend that can do this fetching.
 
 ## How to run the application in the local environment
 
